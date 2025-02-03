@@ -1,7 +1,129 @@
-body {
+body,
+html {
     background-color: black;
+    margin: 0;
+    font-family: sans-serif;
+    overflow-y: hidden;
 }
 
-h1 {
+#app {
+    place-items: center;
+}
+
+.collection-list {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    overflow-x: hidden;
+    z-index: 2;
+}
+
+.collection-item {
+    margin-bottom: 40px;
+
+}
+
+.collection-item h1 {
     color: white;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.image-carousel-grid {
+    display: flex;
+    gap: 25px;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+.image-container {
+    flex: 0 0 auto;
+    position: relative;
+    margin-left: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.7;
+}
+
+.image-container.focused {
+    border: 5px solid white;
+    transform: scale(1.1);
+}
+
+.image-container.fade-out img {
+    opacity: 0.4;
+    transition: opacity 0.5s ease;
+}
+
+.info-container {
+    text-align: left;
+    color: white;
+    margin-left: 35px;
+}
+
+.header-image {
+    width: 100%;
+    height: 45vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-info {
+    display: none;
+}
+
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transform: opacity 0.3s ease-in-out visibility 0.3s;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    background: rgba(107, 107, 107, 0.852);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rbga(0, 0, 0, 0.2);
+    width: 50%;
+    max-width: 600px;
+    align-items: center;
+}
+
+.modal-image-container {
+    align-items: left;
+    text-align: center;
+}
+
+.series-info-container {
+    text-align: justify;
+    padding: 5px;
+    margin: 5px;
+}
+
+#modal-overlay.show {
+    visibility: visible;
+    opacity: 1;
 }

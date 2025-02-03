@@ -1,19 +1,24 @@
+import ImageCarousel from "./ImageCarousel";
+
+import { fetchAllData } from "../api";
 export default class Collections {
     private element: HTMLElement;
 
-    constructor(components: any) {
+    constructor(collections: any) {
         this.element = document.createElement('div');
         this.element.classList.add("collection-list");
+        this.element.id = ('collection-list');
 
-        components.forEach((component: any) => {
+        collections.forEach((component: any) => {
             const collectionItem = document.createElement('div');
             collectionItem.classList.add("collection-item");
             collectionItem.innerHTML = `
                 <h1>${component.name}</h1>
             `;
+            const carousel = new ImageCarousel(component.items);
+            collectionItem.appendChild(carousel.render());
             this.element.appendChild(collectionItem);
         });
-
     }
 
     render(): HTMLElement {
